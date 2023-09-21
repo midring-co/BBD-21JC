@@ -1,0 +1,15 @@
+api_login:
+  path: /api/login
+  controller: App\Controller\AuthController::login
+api_login_check_token:
+  path: /api/login/check-token
+  controller: App\Controller\AuthController::checkToken
+api_auth_reset_password:
+  path: /api/auth/reset-password
+  controller: App\Controller\AuthController::resetPassword
+api_auth_reset_password_check:
+  path: /api/auth/reset-password-check
+  controller: App\Controller\AuthController::resetPasswordCheck
+api_auth_reset_password_send:
+  path: /api/auth/reset-password-send
+  controller: App\Controller\AuthController::resetPasswordSend
