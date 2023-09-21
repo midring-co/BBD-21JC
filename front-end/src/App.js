@@ -1,25 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
-function App() {
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from './redux/reducers';
+
+import Loader from './components/loader';
+
+const theme = createTheme();
+
+const App = () => {
+  const reduxToken = useSelector(state => state.token);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const redirectClient = () => {
+    if(reduxToken) {
+      axios.post('http://localhost:8000/api/login/check-token', reduxToken, { timeout: 10000 })
+      .then(response => {
+        if(response.data.message === 'VALID_LOGIN_BY_TOKEN') {
+          navigate('/dashboard');
+        } else {
+          dispatch(logout({}));
+          navigate('/login');
+        }
+      }).catch(error => {
+        dispatch(logout({}));
+        navigate('/login');
+      });
+    } else {
+      navigate('/login');
+    }
+  };
+
+  useEffect(() => {
+    redirectClient();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <ThemeProvider theme={theme}>
+    <Loader/>
+   </ThemeProvider>
   );
-}
+};
 
 export default App;
