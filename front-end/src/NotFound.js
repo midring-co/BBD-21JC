@@ -1,12 +1,11 @@
 import React from 'react';
 
-const App = () => {
-
+const NotFound = () => {
     return (
         <React.Fragment>
-            
+            <h1>Page introuvable !</h1>
         </React.Fragment>
     )
 };
 
-export default App;
+export default NotFound;
