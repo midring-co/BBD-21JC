@@ -13,7 +13,7 @@ const App = () => {
                     <div className="card">
                         <div className="card_image"> <img src="bdd-1.jpg" /> </div>
                         <div className="card_title title-white">
-                        <p>Joueurs</p>
+                        <h3>Joueurs</h3>
                         </div>
                     </div>
                 </Link>
@@ -22,7 +22,7 @@ const App = () => {
                     <div className="card">
                         <div className="card_image"> <img src="bdd-2.jpg" /> </div>
                         <div className="card_title title-white">
-                        <p>Entreprises</p>
+                        <h3>Entreprises</h3>
                         </div>
                     </div>
                 </Link>
@@ -31,7 +31,7 @@ const App = () => {
                     <div className="card">
                         <div className="card_image"> <img src="bdd-3.jpg" /> </div>
                         <div className="card_title title-white">
-                        <p>Gangs</p>
+                        <h3>Gangs</h3>
                         </div>
                     </div>
                 </Link>
