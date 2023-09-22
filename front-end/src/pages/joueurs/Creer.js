@@ -14,7 +14,7 @@ const Creer = () => {
                 <input className="menu-form" type="text" placeholder="Numéro de téléphone"></input>
                 <input className="menu-form" type="text" placeholder="Matricule d'entreprise"></input>
                 <input className="menu-form" type="text" placeholder="Matricule de gang"></input>
-                <button className="menu-button">Rechercher</button>
+                <button className="menu-button">Créer</button>
                 <Link to="/joueurs"><button className="menu-back-button">Retour au menu</button></Link>
             </div>
         </React.Fragment>
